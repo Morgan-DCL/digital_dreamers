@@ -15,14 +15,14 @@ from datetime import datetime
 start = datetime.now()
 config = import_config()
 
-def delete_datasets_folder(config: dict):
-    path = config['path_streamlit']
-    if os.path.exists(path) and os.path.isdir(path):
-        shutil.rmtree(path)
-        print("Dossier 'datasets' supprimé.")
+# def delete_datasets_folder(config: dict):
+#     path = config['path_streamlit']
+#     if os.path.exists(path) and os.path.isdir(path):
+#         shutil.rmtree(path)
+#         print("Dossier 'datasets' supprimé.")
 
 def get_all(config: dict):
-    delete_datasets_folder(config)
+    # delete_datasets_folder(config)
     logging.info("Start creating dataframe for Machine Learning...")
     asyncio.run(machine_learning(config))
     all_for_one = GetDataframes(config)

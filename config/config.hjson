@@ -3,7 +3,7 @@
   path_streamlit: datasets
   tmdb_actors_max: 3
   tmdb_api_key: fe4a6f12753fa6c12b0fc0253b5e667f
-  tmdb_date: 2023
+  tmdb_date: 2022
   tmdb_duration_max:  230
   tmdb_duration_min: 63
   tmdb_keywords_max: 10
