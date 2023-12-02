@@ -1,7 +1,7 @@
 from datetime import datetime
 
 import pandas as pd
-from tools_app import (
+from streamlit.tools_app import (
     afficher_details_film,
     afficher_top_genres,
     auto_scroll,
