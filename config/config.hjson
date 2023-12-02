@@ -1,6 +1,6 @@
 {
   language: fr-FR
-  path_streamlit: streamlit/datasets
+  path_streamlit: datasets
   tmdb_actors_max: 3
   tmdb_api_key: fe4a6f12753fa6c12b0fc0253b5e667f
   tmdb_date: 2023
