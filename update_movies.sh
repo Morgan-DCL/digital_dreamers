@@ -17,3 +17,5 @@ git commit -m "update_movies : $(date)"
 
 # Pousser les changements sur GitHub
 git push origin main
+
+git pull
