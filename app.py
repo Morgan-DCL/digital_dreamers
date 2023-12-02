@@ -1,7 +1,7 @@
 from datetime import datetime
 
 import pandas as pd
-from tools_app import (
+from utils.tools_app import (
     afficher_details_film,
     afficher_top_genres,
     auto_scroll,
@@ -32,8 +32,8 @@ def load_data(file_path: str) -> pd.DataFrame:
     return pd.read_parquet(file_path)
 
 
-machine_learning = "streamlit/datasets/machine_learning_final.parquet"
-site_web = "streamlit/datasets/site_web.parquet"
+machine_learning = "datasets/machine_learning_final.parquet"
+site_web = "datasets/site_web.parquet"
 df_ml = load_data(machine_learning)
 df_sw = load_data(site_web)
 

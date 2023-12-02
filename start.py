@@ -2,9 +2,9 @@ import asyncio
 
 import nltk
 
-from api_tmdb import main as machine_learning
-from get_dataframes import GetDataframes
-from tools import import_config, logging
+from get_dataframes.api_tmdb import main as machine_learning
+from get_dataframes.get_dataframes import GetDataframes
+from utils.tools import import_config, logging
 
 nltk.download("stopwords")
 nltk.download("wordnet")
