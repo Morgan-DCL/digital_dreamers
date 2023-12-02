@@ -12,7 +12,6 @@ from tools_app import (
     get_clicked_bio,
     get_index_from_titre,
     infos_button,
-    load_data,
     remove_full_screen,
     round_corners,
     del_sidebar,

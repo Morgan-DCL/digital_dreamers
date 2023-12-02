@@ -28,8 +28,13 @@ del_sidebar()
 remove_full_screen()
 round_corners()
 
-machine_learning = "datasets/machine_learning_final.parquet"
-site_web = "datasets/site_web.parquet"
+@st.cache_data
+def load_data(file_path: str) -> pd.DataFrame:
+    return pd.read_parquet(file_path)
+
+
+machine_learning = "streamlit/datasets/machine_learning_final.parquet"
+site_web = "streamlit/datasets/site_web.parquet"
 df_ml = load_data(machine_learning)
 df_sw = load_data(site_web)
 

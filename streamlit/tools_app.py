@@ -138,10 +138,6 @@ async def fetch_persons_movies(ids: int, people_list: list) -> dict:
     return data["characters"]
 
 
-@st.cache_data
-def load_data(file_path: str) -> pd.DataFrame:
-    return pd.read_parquet(file_path)
-
 def get_info(df: pd.DataFrame, info_type: str):
     """
     Extrait une information spécifique du premier élément d'une colonne d'un DataFrame.
