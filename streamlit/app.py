@@ -28,8 +28,8 @@ del_sidebar()
 remove_full_screen()
 round_corners()
 
-machine_learning = "datasets/machine_learning_final.parquet"
-site_web = "datasets/site_web.parquet"
+machine_learning = "machine_learning_final.parquet"
+site_web = "site_web.parquet"
 df_ml = load_data(machine_learning)
 df_sw = load_data(site_web)
 
