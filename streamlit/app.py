@@ -9,7 +9,6 @@ from tools_app import (
     get_info,
     infos_button,
     knn_algo,
-    load_data,
     del_sidebar,
     remove_full_screen,
     round_corners,
