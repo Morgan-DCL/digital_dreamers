@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Naviguer au répertoire de votre projet
-cd /root/scalper/digital_dreamers
+cd ~/scalper/digital_dreamers
 
 # Activer l'environnement Python
 source .venv/bin/activate
