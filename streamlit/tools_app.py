@@ -138,7 +138,7 @@ async def fetch_persons_movies(ids: int, people_list: list) -> dict:
     return data["characters"]
 
 
-@st.cache_data
+# @st.cache_data
 def load_data(file_path: str) -> pd.DataFrame:
     return pd.read_parquet(file_path)
 
