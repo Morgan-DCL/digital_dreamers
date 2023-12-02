@@ -1,0 +1,14 @@
+{
+  language: fr-FR
+  path_streamlit: streamlit/datasets
+  tmdb_actors_max: 3
+  tmdb_api_key: fe4a6f12753fa6c12b0fc0253b5e667f
+  tmdb_date: 2023
+  tmdb_duration_max:  230
+  tmdb_duration_min: 63
+  tmdb_keywords_max: 10
+  tmdb_rating_avg: 5
+  tmdb_votes_min: 420
+  url_discover: https://api.themoviedb.org/3/discover/movie
+  url_movie: https://api.themoviedb.org/3/movie/
+}
