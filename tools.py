@@ -370,3 +370,29 @@ def one_for_all(r):
         + " "
         + r["titre_genres"]
     )
+
+def clean_dup(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Nettoie les doublons dans une colonne spécifique d'un DataFrame en ajoutant
+    la date entre parenthèses.
+
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Le DataFrame à nettoyer.
+
+    Returns
+    -------
+    pd.DataFrame
+        DataFrame avec les doublons nettoyés.
+    """
+    logging.info("Apply date to duplicated movies...")
+    condi = df["titre_str"].duplicated(keep=False)
+    df.loc[condi, "titre_str"] = (
+        df.loc[condi, "titre_str"]
+        + " "
+        + "("
+        + df.loc[condi, "date"].astype(str)
+        + ")"
+    )
+    return df

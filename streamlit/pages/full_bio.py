@@ -9,30 +9,25 @@ from streamlit_extras.switch_page_button import switch_page
 
 from datetime import datetime
 from tools_app import (
-    clean_dup,
-    auto_scroll,
     get_clicked_bio,
     get_index_from_titre,
     infos_button,
+    load_data,
     remove_full_screen,
     round_corners,
     del_sidebar,
 )
 
-df_sw = pd.read_parquet("datasets/site_web.parquet")
-df_sw = clean_dup(df_sw)
-
 pdict = st.session_state["actor"]
 mov_dup_dict: dict = st.session_state["dup_movie_dict"]
+df_sw = st.session_state["df_site_web"]
 
-# Configuration de la page
 st.set_page_config(
     page_title=f"{pdict['name']}",
     page_icon="👤",
     initial_sidebar_state="collapsed",
     layout="wide",
 )
-
 
 del_sidebar()
 remove_full_screen()
@@ -51,10 +46,10 @@ with home:
         st.session_state["index_movie_selected"] = movies_list.index(
             default_message
         )
-        switch_page("DDMRS")
+        switch_page("app")
 with retour:
     if st.button("Retour"):
-        switch_page("DDMRS")
+        switch_page("app")
 col1, col2 = st.columns([1, 4])
 with col1:
     st.image(pdict["image"], use_column_width=True)
@@ -88,6 +83,7 @@ with col2:
     for i, col in enumerate(cols):
         with col:
             nom_film, clicked3 = get_clicked_bio(pdict, mov_dup_dict, i)
+            print(nom_film)
             if clicked3:
                 st.session_state["clicked3"] = True
                 infos_button(
@@ -96,7 +92,7 @@ with col2:
                     get_index_from_titre(df_sw, nom_film),
                 )
     if st.session_state["clicked3"]:
-        switch_page("DDMRS")
+        switch_page("app")
 if len(pdict["biography"]) > 1:
     st.subheader("**Biographie**", anchor=False, divider=True)
     st.markdown(pdict["biography"])

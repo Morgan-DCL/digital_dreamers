@@ -1,13 +1,15 @@
+from datetime import datetime
+
 import pandas as pd
 from tools_app import (
     afficher_details_film,
     afficher_top_genres,
     auto_scroll,
-    clean_dup,
     get_clicked,
     get_info,
     infos_button,
     knn_algo,
+    load_data,
     del_sidebar,
     remove_full_screen,
     round_corners,
@@ -15,7 +17,6 @@ from tools_app import (
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
 
-# Configuration de la page
 st.set_page_config(
     page_title="DigitalDreamers Recommandation System",
     page_icon="📽️",
@@ -27,20 +28,18 @@ del_sidebar()
 remove_full_screen()
 round_corners()
 
-# Importation des dataframes nécessaires.
 machine_learning = "datasets/machine_learning_final.parquet"
 site_web = "datasets/site_web.parquet"
-df_ml = pd.read_parquet(machine_learning)
-df_ml = clean_dup(df_ml)
-df_sw = pd.read_parquet(site_web)
-condi = df_sw["titre_str"].duplicated(keep=False)
-df_sw = clean_dup(df_sw)
+df_ml = load_data(machine_learning)
+df_sw = load_data(site_web)
+
+df_sw['titre_str_mod'] = df_sw['titre_str'].apply(lambda x: x[:-7] if x.endswith(')') else x)
+condi = df_sw['titre_str_mod'].duplicated(keep=False)
 
 df_c: pd.DataFrame = df_sw[condi]
 df_c.index = df_c["tmdb_id"]
 dup_mov_dict = df_c["titre_str"].to_dict()
 
-# Création de la liste des films pour la sélection.
 default_message = "Entrez ou sélectionnez le nom d'un film..."
 movies = df_sw["titre_str"]
 movies_list = [default_message] + list(sorted(movies))
@@ -48,7 +47,6 @@ selectvalue = default_message
 
 movies_ids = df_sw["tmdb_id"].to_list()
 
-# Instanciation des session_state.
 if "index_movie_selected" not in st.session_state:
     st.session_state["index_movie_selected"] = movies_list.index(selectvalue)
 if "clicked" not in st.session_state:
@@ -65,21 +63,19 @@ if "default_message" not in st.session_state:
     st.session_state["default_message"] = default_message
 if "dup_mov_dict" not in st.session_state:
     st.session_state["dup_movie_dict"] = dup_mov_dict
+if "df_site_web" not in st.session_state:
+    st.session_state["df_site_web"] = df_sw
 
-
-# Début de la page.
 st.session_state["clickedhome"] = False
 st.session_state["clicked"] = None
 st.session_state["clicked2"] = False
-# home, titre = st.columns([1,23])
-# with home:
+
 if st.button("🏠"):
     st.session_state["index_movie_selected"] = movies_list.index(
         default_message
     )
-# with titre:
+
 st.header("DigitalDreamers Recommandation System", anchor=False)
-# Barre de sélection
 selectvalue = st.selectbox(
     label="Choisissez un film ⤵️",
     options=movies_list,
@@ -142,5 +138,5 @@ else:
     auto_scroll()
 
 st.write(
-    "App développée par [Morgan](https://github.com/Morgan-DCL) et [Teddy](https://github.com/dsteddy)"
+    "Application développée par [Morgan](https://github.com/Morgan-DCL) et [Teddy](https://github.com/dsteddy)"
 )

@@ -28,7 +28,6 @@ async def fetch_infos(
     async with ss.get(url, params=params) as rsp:
         return await rsp.json()
 
-
 async def fetch_persons_bio(
     people_list: list, movies_ids: list, director: bool = False
 ) -> list:
@@ -108,7 +107,6 @@ async def fetch_persons_bio(
             full.append(data)
     return full
 
-
 async def fetch_infos_movies(
     ss: object,
     TMdb_id: int,
@@ -124,8 +122,7 @@ async def fetch_infos_movies(
     async with ss.get(url, params=params) as rsp:
         return await rsp.json()
 
-
-async def fetch_persons_movies(ids: int, people_list: list) -> list:
+async def fetch_persons_movies(ids: int, people_list: list) -> dict:
     async with aiohttp.ClientSession() as ss:
         taches = []
         for id in [ids]:
@@ -141,49 +138,9 @@ async def fetch_persons_movies(ids: int, people_list: list) -> list:
     return data["characters"]
 
 
-def clean_dup(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Nettoie les doublons dans une colonne spécifique d'un DataFrame en ajoutant
-    la date entre parenthèses.
-
-    Parameters
-    ----------
-    df : pd.DataFrame
-        Le DataFrame à nettoyer.
-
-    Returns
-    -------
-    pd.DataFrame
-        DataFrame avec les doublons nettoyés.
-    """
-    condi = df["titre_str"].duplicated(keep=False)
-    df.loc[condi, "titre_str"] = (
-        df.loc[condi, "titre_str"]
-        + " "
-        + "("
-        + df.loc[condi, "date"].astype(str)
-        + ")"
-    )
-    return df
-
-
-def auto_scroll():
-    """
-    Déclenche un défilement automatique de la fenêtre dans un contexte Streamlit.
-
-    Cette fonction ne prend aucun paramètre et ne retourne rien.
-    Elle utilise un script HTML pour réinitialiser le défilement de la fenêtre.
-    """
-    components.html(
-        f"""
-            <p>{st.session_state["counter"]}</p>
-            <script>
-                window.parent.document.querySelector('section.main').scrollTo(0, 0);
-            </script>
-        """,
-        height=0,
-    )
-
+@st.cache_data
+def load_data(file_path: str) -> pd.DataFrame:
+    return pd.read_parquet(file_path)
 
 def get_info(df: pd.DataFrame, info_type: str):
     """
@@ -204,7 +161,6 @@ def get_info(df: pd.DataFrame, info_type: str):
     info = df[info_type].iloc[0]
     return info
 
-
 def get_titre_from_index(df: pd.DataFrame, idx: int) -> str:
     """
     Récupère le titre correspondant à un index donné dans un DataFrame.
@@ -222,7 +178,6 @@ def get_titre_from_index(df: pd.DataFrame, idx: int) -> str:
         Titre correspondant à l'index fourni.
     """
     return df[df.index == idx]["titre_str"].values[0]
-
 
 def get_index_from_titre(df: pd.DataFrame, titre: str) -> int:
     """
@@ -242,7 +197,7 @@ def get_index_from_titre(df: pd.DataFrame, titre: str) -> int:
     """
     return df[df.titre_str == titre].index[0]
 
-
+@st.cache_data
 def knn_algo(df: pd.DataFrame, titre: str, top: int = 5) -> list:
     """
     Implémente l'algorithme KNN pour recommander des titres similaires.
@@ -278,7 +233,6 @@ def knn_algo(df: pd.DataFrame, titre: str, top: int = 5) -> list:
         recommandations = get_titre_from_index(df, idx)
         result.append(recommandations)
     return result
-
 
 def infos_button(df: pd.DataFrame, movie_list: list, idx: int):
     """
@@ -360,15 +314,8 @@ def get_clicked(
     index = int(get_index_from_titre(df, titres_list[nb]))
     movie = df[df["titre_str"] == titres_list[nb]]
     image_link = get_info(movie, "image")
-    titre_str = get_info(movie, "titre_str")
-    # content = f"""
-    #     <div style="text-align: center;">
-    #         <a href="#" id="{titres_list[nb]}">
-    #             <img width="125px" heigth="180px" src="{image_link}"
-    #                 style="object-fit: cover; border-radius: 5%; margin-bottom: 15px;">
-    #         </a>
-    #         <p style="margin: 0;">{titre_str}</p>
-    # """
+    film_str: str = get_info(movie, "titre_str")
+    name_film = film_str[:-7] if film_str.endswith(")") else film_str
     content = f"""
         <div style="text-align: center;">
             <a href="#" id="{titres_list[nb]}">
@@ -377,7 +324,7 @@ def get_clicked(
                     onmouseover="this.style.filter='brightness(70%)'; this.style.transform='scale(1.1)'"
                     onmouseout="this.style.filter='brightness(100%)'; this.style.transform='scale(1)'">
             </a>
-            <p style="margin: 0;">{titre_str}</p>
+            <p style="margin: 0;">{name_film}</p>
         </div>
     """
 
@@ -397,15 +344,6 @@ def get_clicked_act_dirct(api_list: list, character: dict, nb: int):
         if peo["id"] == k:
             name = v
 
-    # content = f"""
-    #     <div style="text-align: center;">
-    #         <a href="#" id="{api_list[nb]}">
-    #             <img width="{str(width)}px" height="{str(height)}px" src="{peo['image']}"
-    #                 style="object-fit: cover; border-radius: 5%; margin-bottom: 15px;">
-    #         </a>
-    #         <p style="margin: 0;"><strong>{peo['name']}</strong></p>
-    #         <p style="margin: 0;"><em style="opacity: 0.7;">{name}</em></p>
-    # """
     content = f"""
     <div style="text-align: center;">
         <a href="#" id="{api_list[nb]}">
@@ -437,15 +375,6 @@ def get_clicked_bio(api_list: list, dup_ids: dict, nb: int):
 
     width = 130
     height = 190
-    # content = f"""
-    #     <div style="text-align: center;">
-    #         <a href="#" id="{nb}" class="layer">
-    #             <img width="{str(width)}px" height="{str(height)}px" src="{image}"
-    #                 style="object-fit: cover; border-radius: 5%; margin-bottom: 15px;">
-    #         </a>
-    #         <p style="margin: 0;"><strong>{nom_}</strong></p>
-    #         <p style="margin: 0;"><em style="opacity: 0.7;">{character}</em></p>
-    # """
     content = f"""
         <div style="text-align: center;">
             <a href="#" id="{nb}" class="layer">
@@ -461,8 +390,6 @@ def get_clicked_bio(api_list: list, dup_ids: dict, nb: int):
     unique_key = f"bio_{nb}_{peo['name']}"
     return nom_, click_detector(content, key=unique_key)
 
-
-# @st.cache_data
 def afficher_details_film(df: pd.DataFrame, movies_ids: list):
     infos = {
         "id": get_info(df, "tmdb_id"),
@@ -535,8 +462,6 @@ def afficher_details_film(df: pd.DataFrame, movies_ids: list):
         character = asyncio.run(fetch_persons_movies(infos["id"], actors_ids))
 
         for i, col in enumerate(cols):
-            # st.session_state["person_id"] = full_perso[i]["id"]
-
             with col:
                 if i < 1:
                     st.subheader("**Réalisation**", anchor=False, divider=True)
@@ -567,11 +492,9 @@ def afficher_details_film(df: pd.DataFrame, movies_ids: list):
                 <iframe width="100%" height="315" src="{youtube_url}" frameborder="0" allowfullscreen></iframe>
             </div>
         """
-        # st.video(infos["youtube"])
         st.markdown(yout, unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
-
 
 def get_actors_dict(df: pd.DataFrame) -> dict:
     """
@@ -599,7 +522,6 @@ def get_actors_dict(df: pd.DataFrame) -> dict:
         actor_id_pairs = zip(actors_list, ids)
         actors_dict.update(actor_id_pairs)
     return actors_dict
-
 
 def get_directors_dict(df: pd.DataFrame) -> dict:
     """
@@ -631,7 +553,6 @@ def get_directors_dict(df: pd.DataFrame) -> dict:
 
 
 def get_clicked_home():
-    # index = movies_list.index(default_message)
     image_link = "https://cdn-icons-png.flaticon.com/512/4849/4849108.png"
     content = f"""
             <a href="#" id="Home">
@@ -682,3 +603,21 @@ def round_corners():
     </style>
     """
     st.markdown(round_corners, unsafe_allow_html=True)
+
+
+def auto_scroll():
+    """
+    Déclenche un défilement automatique de la fenêtre dans un contexte Streamlit.
+
+    Cette fonction ne prend aucun paramètre et ne retourne rien.
+    Elle utilise un script HTML pour réinitialiser le défilement de la fenêtre.
+    """
+    components.html(
+        f"""
+            <p>{st.session_state["counter"]}</p>
+            <script>
+                window.parent.document.querySelector('section.main').scrollTo(0, 0);
+            </script>
+        """,
+        height=0,
+    )

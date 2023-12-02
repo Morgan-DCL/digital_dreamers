@@ -3,6 +3,7 @@ import pandas as pd
 
 from tools import (
     ast,
+    clean_dup,
     clean_overview,
     col_renaming,
     col_to_keep,
@@ -86,6 +87,7 @@ class GetDataframes:
                 ml_df[act_dct] = ml_df[act_dct].apply(
                     lambda x: ast.literal_eval(x)
                 )
+            ml_df = clean_dup(ml_df)
             ml_df.reset_index(drop="index", inplace=True)
             ml_df.to_parquet(f"{self.streamlit_path}/site_web.parquet")
 
