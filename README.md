@@ -72,4 +72,3 @@ This project is open source and available under the [MIT License](LICENSE).
    ```
 
 For any questions or suggestions, please open an issue on the GitHub repository, and a maintainer will get back to you.
-```
