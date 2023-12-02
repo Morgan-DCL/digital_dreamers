@@ -83,7 +83,6 @@ with col2:
     for i, col in enumerate(cols):
         with col:
             nom_film, clicked3 = get_clicked_bio(pdict, mov_dup_dict, i)
-            print(nom_film)
             if clicked3:
                 st.session_state["clicked3"] = True
                 infos_button(
