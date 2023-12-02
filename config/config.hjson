@@ -8,7 +8,7 @@
   tmdb_duration_min: 63
   tmdb_keywords_max: 10
   tmdb_rating_avg: 5
-  tmdb_votes_min: 500
+  tmdb_votes_min: 100
   url_discover: https://api.themoviedb.org/3/discover/movie
   url_movie: https://api.themoviedb.org/3/movie/
 }

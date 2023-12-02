@@ -9,11 +9,11 @@ source .venv/bin/activate
 # Exécuter le script Python
 python start.py
 
-# # Ajouter les changements à Git
-# git add -A
+# Ajouter les changements à Git
+git add -A
 
-# # Commit les changements avec la date et l'heure actuelle comme message
-# git commit -m "update_movies : $(date)"
+# Commit les changements avec la date et l'heure actuelle comme message
+git commit -m "update_movies : $(date)"
 
-# # Pousser les changements sur GitHub
-# git push origin main
+# Pousser les changements sur GitHub
+git push origin main
