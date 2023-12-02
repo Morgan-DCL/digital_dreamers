@@ -13,7 +13,6 @@ from datetime import datetime
 start = datetime.now()
 config = import_config()
 
-
 def get_all():
     logging.info("Start creating dataframe for Machine Learning...")
     asyncio.run(machine_learning(config))
