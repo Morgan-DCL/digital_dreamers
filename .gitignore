@@ -339,23 +339,12 @@ $RECYCLE.BIN/
 *.lnk
 
 # Backtest files
-_docstring/
-explo_data_analysis/
-clean_datasets/
-movies_datasets/*
-!movies_datasets/tmdb.parquet
-
 google_start/
 testing/
 logs/
 
-# Optimizer files
-test.ipynb
-
 # Config files
 api_keys.json
-auto_doc.py
-
 # Reports
 reports/*
 tmp/optimize_errors.txt
