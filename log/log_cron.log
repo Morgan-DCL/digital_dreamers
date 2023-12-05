@@ -831,3 +831,14 @@ Already up to date.
 
 Valeur ajoutée au fichier log : 0.19334963338476663
 Temps écoulé -> 0:07:49.971931
+[main e02a784] update_movies : Tue Dec  5 08:07:54 UTC 2023
+ 5 files changed, 29 insertions(+), 1 deletion(-)
+fatal: could not read Username for 'https://github.com': No such device or address
+Already up to date.
+[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+2023-12-05 08:10:03 INFO     0.11683378259783073
+2023-12-05 08:10:03 INFO     Start creating dataframe for Machine Learning...
+2023-12-05 08:10:03 INFO     Fetching TMdb ids...
