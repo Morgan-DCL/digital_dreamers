@@ -341,7 +341,6 @@ $RECYCLE.BIN/
 # Backtest files
 google_start/
 testing/
-logs/
 
 # Config files
 api_keys.json
