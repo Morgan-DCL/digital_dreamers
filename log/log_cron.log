@@ -42118,3 +42118,45 @@ and the repository exists.
 
 Valeur ajoutée au fichier log : 0.13950088907390157
 Temps écoulé -> 0:12:52.191415
+[main 142c6e5] update_movies : Wed Dec  6 08:36:03 UTC 2023
+ 3 files changed, 32 insertions(+), 1 deletion(-)
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+2023-12-06 08:36:07 INFO     Start creating dataframe for Machine Learning...
+2023-12-06 08:36:07 INFO     Fetching TMdb ids...
+2023-12-06 08:36:22 INFO     lowering everything in actors
+2023-12-06 08:36:22 INFO     lowering everything in titre_genres
+2023-12-06 08:36:22 INFO     lowering everything in director
+2023-12-06 08:36:22 INFO     lowering everything in keywords
+2023-12-06 08:36:22 INFO     lowering everything in overview
+2023-12-06 08:36:23 INFO     Dataframe machine_learning_final ready to use!
+2023-12-06 08:36:23 INFO     ---------- Job Done for machine_learning ! ----------
+
+2023-12-06 08:36:23 INFO     -------------------- Job Done for 1 dataframes ! --------------------
+
+Valeur ajoutée au fichier log : 0.8340422990162866
+Temps écoulé -> 0:11:16.701807
+2023-12-06 08:36:23 INFO     lowering everything in actors
+2023-12-06 08:36:23 INFO     lowering everything in titre_genres
+2023-12-06 08:36:23 INFO     lowering everything in director
+2023-12-06 08:36:23 INFO     lowering everything in keywords
+2023-12-06 08:36:23 INFO     lowering everything in overview
+2023-12-06 08:36:24 INFO     Dataframe machine_learning_final ready to use!
+2023-12-06 08:36:24 INFO     ---------- Job Done for machine_learning ! ----------
+
+2023-12-06 08:36:24 INFO     -------------------- Job Done for 1 dataframes ! --------------------
+
+Valeur ajoutée au fichier log : 0.7790177700514528
+Temps écoulé -> 0:10:16.213480
