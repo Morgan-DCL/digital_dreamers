@@ -23,7 +23,7 @@ start = datetime.now()
 def get_all(config: dict):
     logging.info(f"{name_}")
     logging.info("Start creating dataframe for Machine Learning...")
-    # asyncio.run(machine_learning(config))
+    asyncio.run(machine_learning(config))
     all_for_one = GetDataframes(config)
     all_for_one.get_all_dataframes()
 
