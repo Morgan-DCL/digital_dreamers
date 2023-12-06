@@ -42087,3 +42087,34 @@ fatal: Could not read from remote repository.
 
 Please make sure you have the correct access rights
 and the repository exists.
+[main 75449d6] update_movies : Wed Dec  6 08:35:03 UTC 2023
+ 2 files changed, 24 insertions(+)
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+2023-12-06 08:35:06 INFO     Start creating dataframe for Machine Learning...
+2023-12-06 08:35:06 INFO     Fetching TMdb ids...
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2023-12-06 08:35:23 INFO     Creating TMdb Dataframe...
+2023-12-06 08:35:52 INFO     lowering everything in actors
+2023-12-06 08:35:52 INFO     lowering everything in titre_genres
+2023-12-06 08:35:53 INFO     lowering everything in director
+2023-12-06 08:35:53 INFO     lowering everything in keywords
+2023-12-06 08:35:53 INFO     lowering everything in overview
+2023-12-06 08:35:55 INFO     Dataframe machine_learning_final ready to use!
+2023-12-06 08:35:55 INFO     ---------- Job Done for machine_learning ! ----------
+
+2023-12-06 08:35:55 INFO     -------------------- Job Done for 1 dataframes ! --------------------
+
+Valeur ajoutée au fichier log : 0.13950088907390157
+Temps écoulé -> 0:12:52.191415
