@@ -967,3 +967,81 @@ Enter passphrase for /root/.ssh/id_ed25519: [nltk_data] Downloading package stop
 
 Valeur ajoutée au fichier log : 0.850968870849089
 Temps écoulé -> 0:00:57.533000
+[main 605d5ff] update_movies : Wed Dec  6 07:56:01 UTC 2023
+ 3 files changed, 38 insertions(+), 1 deletion(-)
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+Agent pid 3456880
+Enter passphrase for /root/.ssh/id_ed25519: [nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+2023-12-06 07:59:03 INFO     Start creating dataframe for Machine Learning...
+2023-12-06 07:59:03 INFO     ---------- Start creating machine_learning ----------
+2023-12-06 07:59:03 INFO     Parquet loaded ! Importing machine_learning...
+2023-12-06 07:59:03 INFO     Apply date to duplicated movies...
+2023-12-06 07:59:04 INFO     Cleaning StopWords and Lemmatize...
+2023-12-06 07:59:59 INFO     lowering everything in actors
+2023-12-06 07:59:59 INFO     lowering everything in titre_genres
+2023-12-06 07:59:59 INFO     lowering everything in director
+2023-12-06 07:59:59 INFO     lowering everything in keywords
+2023-12-06 07:59:59 INFO     lowering everything in overview
+2023-12-06 07:59:59 INFO     Dataframe machine_learning_final ready to use!
+2023-12-06 07:59:59 INFO     ---------- Job Done for machine_learning ! ----------
+
+2023-12-06 07:59:59 INFO     -------------------- Job Done for 1 dataframes ! --------------------
+
+Valeur ajoutée au fichier log : 0.27283218628061223
+Temps écoulé -> 0:00:56.036272
+Agent pid 3457114
+Enter passphrase for /root/.ssh/id_ed25519: /root/scalper/digital_dreamers/update_movies.sh: line 4: 49699327Morgan!: command not found
+[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+2023-12-06 08:00:02 INFO     Start creating dataframe for Machine Learning...
+2023-12-06 08:00:02 INFO     ---------- Start creating machine_learning ----------
+2023-12-06 08:00:02 INFO     Parquet loaded ! Importing machine_learning...
+2023-12-06 08:00:02 INFO     Apply date to duplicated movies...
+2023-12-06 08:00:02 INFO     Cleaning StopWords and Lemmatize...
+[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+2023-12-06 08:00:04 INFO     Start creating dataframe for Machine Learning...
+2023-12-06 08:00:04 INFO     ---------- Start creating machine_learning ----------
+2023-12-06 08:00:04 INFO     Parquet loaded ! Importing machine_learning...
+2023-12-06 08:00:04 INFO     Apply date to duplicated movies...
+2023-12-06 08:00:05 INFO     Cleaning StopWords and Lemmatize...
+2023-12-06 08:01:05 INFO     lowering everything in actors
+2023-12-06 08:01:05 INFO     lowering everything in titre_genres
+2023-12-06 08:01:05 INFO     lowering everything in director
+2023-12-06 08:01:05 INFO     lowering everything in keywords
+2023-12-06 08:01:05 INFO     lowering everything in overview
+2023-12-06 08:01:06 INFO     Dataframe machine_learning_final ready to use!
+2023-12-06 08:01:06 INFO     ---------- Job Done for machine_learning ! ----------
+
+2023-12-06 08:01:06 INFO     -------------------- Job Done for 1 dataframes ! --------------------
+
+Valeur ajoutée au fichier log : 0.27422359145592734
+Temps écoulé -> 0:01:03.935734
+2023-12-06 08:01:06 INFO     lowering everything in actors
+2023-12-06 08:01:06 INFO     lowering everything in titre_genres
+2023-12-06 08:01:06 INFO     lowering everything in director
+2023-12-06 08:01:06 INFO     lowering everything in keywords
+2023-12-06 08:01:06 INFO     lowering everything in overview
+2023-12-06 08:01:06 INFO     Dataframe machine_learning_final ready to use!
+2023-12-06 08:01:06 INFO     ---------- Job Done for machine_learning ! ----------
+
+2023-12-06 08:01:06 INFO     -------------------- Job Done for 1 dataframes ! --------------------
+
+Valeur ajoutée au fichier log : 0.43902837248274706
+Temps écoulé -> 0:01:02.298662
