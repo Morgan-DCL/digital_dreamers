@@ -898,3 +898,5 @@ Temps écoulé -> 0:09:26.082103
  5 files changed, 33 insertions(+), 1 deletion(-)
 fatal: could not read Username for 'https://github.com': No such device or address
 Already up to date.
+/root/scalper/digital_dreamers/update_movies.sh: line 3: .venv/bin/activate: No such file or directory
+/root/scalper/digital_dreamers/update_movies.sh: line 4: python: command not found
