@@ -42063,3 +42063,27 @@ Temps écoulé -> 0:16:38.048923
 2023-12-06 08:34:42 INFO     Parquet loaded ! Importing machine_learning...
 2023-12-06 08:34:45 INFO     Apply date to duplicated movies...
 2023-12-06 08:34:45 INFO     Cleaning StopWords and Lemmatize...
+[main f19e76c] update_movies : Wed Dec  6 08:34:52 UTC 2023
+ 5 files changed, 136 insertions(+), 1 deletion(-)
+2023-12-06 08:34:54 INFO     lowering everything in actors
+2023-12-06 08:34:54 INFO     lowering everything in titre_genres
+2023-12-06 08:34:54 INFO     lowering everything in director
+2023-12-06 08:34:54 INFO     lowering everything in keywords
+2023-12-06 08:34:54 INFO     lowering everything in overview
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+2023-12-06 08:34:56 INFO     Dataframe machine_learning_final ready to use!
+2023-12-06 08:34:56 INFO     ---------- Job Done for machine_learning ! ----------
+
+2023-12-06 08:34:56 INFO     -------------------- Job Done for 1 dataframes ! --------------------
+
+Valeur ajoutée au fichier log : 0.7581052599746871
+Temps écoulé -> 0:15:53.331726
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
