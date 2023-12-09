@@ -9,7 +9,7 @@ from get_dataframes.api_tmdb import main as machine_learning
 from get_dataframes.get_dataframes import GetDataframes
 from utils.tools import import_config, logging
 
-
+print("loading..")
 import json
 nltk.download("stopwords")
 nltk.download("wordnet")
